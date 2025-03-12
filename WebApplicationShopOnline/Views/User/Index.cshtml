@@ -1,10 +1,12 @@
-﻿@model UserViewModel
+﻿@model User
 
 <div class="row">
 	<div class="col">
+		<p><span class="text-secondary">Id:</span> @Model.Id</p>
 		<p><span class="text-secondary">Имя:</span> @Model.Name</p>
-		<p><span class="text-secondary">Логин:</span> @Model.Name</p>
-		<p><span class="text-secondary">Телефон:</span> @Model.Name</p>
-		<p><span class="text-secondary">Пароль:</span> @Model.Name - конфиденциально</p>
+		<p><span class="text-secondary">Логин:</span> @Model.Login</p>
+		<p><span class="text-secondary">Почта:</span> @Model.Email</p>
+		<p><span class="text-secondary">Телефон:</span> @Model.Phone</p>
+		<p><span class="text-secondary">Пароль:</span> @Model.Password - "конфиденциально"</p>
 	</div>
 </div>
