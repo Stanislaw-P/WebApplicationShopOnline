@@ -3,6 +3,12 @@
 
 <div class="row">
 	<div class="col-9">
+		
+		<form method="post">
+			<input type="text" name="searchName" class="form-control w-50" placeholder="Поиск..." required/>
+			<button type="submit" class="btn btn-success" asp-area="" asp-controller="User" asp-action="Search">Поиск</button>
+		</form>
+
 		<table class="table">
 			<thead class="table-dark">
 				<tr>

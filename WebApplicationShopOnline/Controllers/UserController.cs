@@ -11,8 +11,6 @@ namespace WebApplicationShopOnline.Controllers
 		public IActionResult Index(Guid idUser)
 		{
 			var existingUser = userRepository.TryGetById(idUser);
-			if (existingUser == null)
-				return NotFound();
 			return View(existingUser);
 		}
 
@@ -21,6 +19,14 @@ namespace WebApplicationShopOnline.Controllers
 		{
 			var users = userRepository.GetAll();
 			return View(users);
+		}
+
+		public IActionResult Search(string searchName)
+		{
+			var existingUser = userRepository.GetAll().FirstOrDefault(user => user.Name == searchName);
+			if (existingUser == null)
+				return NotFound("Пользователь не найден!");
+			return RedirectToAction(nameof(Index), new { idUser = existingUser.Id});
 		}
 	}
 }
