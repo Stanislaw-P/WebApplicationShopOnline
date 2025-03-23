@@ -1,14 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApplicationShopOnline.Data;
 using WebApplicationShopOnline.Models;
 
 namespace WebApplicationShopOnline.Controllers
 {
 	public class UserController : Controller
 	{
-		public IActionResult Index(string name, string login, string password, string phone, string email)
+		UserRepository userRepository = new UserRepository();
+
+		public IActionResult Index(Guid idUser)
 		{
-			User inputUser = new User(name, login, password, phone, email);
-			return View(inputUser);
+			var existingUser = userRepository.TryGetById(idUser);
+			if (existingUser == null)
+				return NotFound();
+			return View(existingUser);
+		}
+
+		// Норм название не придумал
+		public IActionResult UserList()
+		{
+			var users = userRepository.GetAll();
+			return View(users);
 		}
 	}
 }
