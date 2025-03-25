@@ -7,13 +7,10 @@
 	{
 		<div class="col-md-3">
 			<div class="card shadow">
-				<div class="card-body">
+					<img src="@product.PathImage"/>
 					@product.Name
-				</div>
-				<div class="card-footer">
 					@product.Cost
 					<a asp-controller="product" asp-action="index" asp-route-id="@product.Id" role="button" class="btn btn-outline-primary">Подробнее</a>
-				</div>
 			</div>
 		</div>
 	}
