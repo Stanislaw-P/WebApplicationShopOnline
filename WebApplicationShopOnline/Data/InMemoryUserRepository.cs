@@ -2,7 +2,7 @@
 
 namespace WebApplicationShopOnline.Data
 {
-	public class UserRepository
+	public class InMemoryUserRepository : IUsersRepository
 	{
 		static List<User> users = new List<User>
 		{
@@ -16,9 +16,9 @@ namespace WebApplicationShopOnline.Data
 			return users;
 		}
 
-		public User? TryGetById(Guid idUser)
+		public User TryGetById(Guid id)
 		{
-			return users.FirstOrDefault(user => user.Id == idUser);
+			return users.FirstOrDefault(user => user.Id == id);
 		}
 	}
 }

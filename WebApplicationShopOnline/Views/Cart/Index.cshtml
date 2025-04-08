@@ -1,0 +1,46 @@
+﻿@model Cart
+
+<div class="text-left">
+    <h1 class="display-4">Корзина</h1>
+    @if (Model == null || Model.Items.Count == 0)
+    {
+        <h3>У вас еще нет покупок</h3>
+    }
+    else
+    {
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название</th>
+                    <th scope="col">Цена</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Сумма</th>
+                    <th scope="col">+/-</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Product.Cost</td>
+                        <td>@item.Amount</td>
+                        <td>@item.Cost</td>
+                        <td>
+                            <a type="button" class="btn btn-outline-dark"
+                               asp-controller="Cart"
+                               asp-action="IncreaseCountProduct"
+                               asp-route-productId="@item.Product.Id">+</a>
+                            <a type="button" class="btn btn-outline-dark"
+                               asp-controller="Cart"
+                               asp-action="DecreaseCountProduct"
+                               asp-route-productId="@item.Product.Id">-</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

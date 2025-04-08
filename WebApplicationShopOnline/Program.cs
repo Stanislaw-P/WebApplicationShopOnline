@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IProductsRepository, ProductsInJsonRepository>();
+builder.Services.AddSingleton<ICartsRepository, CartsInMemoryRepository>();
+builder.Services.AddSingleton<IUsersRepository, InMemoryUserRepository>();
 
 var app = builder.Build();
 

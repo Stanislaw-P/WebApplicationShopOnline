@@ -6,7 +6,7 @@ namespace WebApplicationShopOnline.Controllers
 {
 	public class UserController : Controller
 	{
-		UserRepository userRepository = new UserRepository();
+		InMemoryUserRepository userRepository = new InMemoryUserRepository();
 
 		public IActionResult Index(Guid idUser)
 		{
