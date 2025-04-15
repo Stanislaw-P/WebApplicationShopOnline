@@ -13,6 +13,11 @@ namespace WebApplicationShopOnline.Data
 			products = JsonSerializer.Deserialize<List<Product>>(jsonString);
 		}
 
+		public void Add(Product product)
+		{
+			products.Add(product);
+		}
+
 		public List<Product> GetAll()
 		{
 			return products;

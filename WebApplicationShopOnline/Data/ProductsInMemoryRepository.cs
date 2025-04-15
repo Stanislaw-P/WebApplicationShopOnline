@@ -12,6 +12,11 @@ namespace WebApplicationShopOnline.Data
 			//new Product("Шаурма", "Стандарт", 400)
 		};
 
+		public void Add(Product product)
+		{
+			products.Add(product);
+		}
+
 		public List<Product> GetAll()
 		{
 			return products;

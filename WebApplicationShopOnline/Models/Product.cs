@@ -2,9 +2,13 @@
 {
 	public class Product
 	{
-		public Product(string name, string decription, decimal cost, string pathImage)
+		public Product()
 		{
 			Id = Guid.NewGuid();
+		}
+
+		public Product(string name, string decription, decimal cost, string pathImage) :this()
+		{
 			Name = name;
 			Decription = decription;
 			Cost = cost;
