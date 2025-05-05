@@ -1,0 +1,34 @@
+﻿@model Product
+
+
+<div class="row">
+	<div class="col-md-3">
+		@await Html.PartialAsync("AdminNavBar")
+	</div>
+
+	<div class="col-md-9">
+		<h2>Редактирование продукта</h2>
+		<form method="post">
+			<div class="mb-3">
+				<label class="form-label">Название</label>
+				<input type="text" name="Name" class="form-control" value="@Model.Name">
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Описание</label>
+				<input type="text" name="Description" class="form-control" value="@Model.Decription">
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Цена</label>
+				<input type="number" name="Cost" class="form-control" value="@Model.Cost">
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">URL картинки</label>
+				<input type="text" name="PathImage" class="form-control" value="@Model.PathImage">
+			</div>
+			<button type="submit" class="btn btn-success">Отправить</button>
+		</form>
+	</div>
+</div>
